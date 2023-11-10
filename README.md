@@ -1,5 +1,6 @@
 # SIMPING 
 
+## Introduction
 SIMPING is a simple ping clone program that I made to understand more about *raw socket*, *icmp packet*, *ip flood attack* 
 
 SIMPING supports
@@ -13,7 +14,14 @@ SIMPING does not support
 OS supports 
 - Linux
 
-Features
+## Installation 
+```
+git clone https://github.com/TVKain/simping.git
+cd simping
+make 
+```
+
+## Features
 - packet with custom size 
 - send packet indefinitely until receive interrupt, can specify delay between each packet 
 - specify number of packets to send 
@@ -33,3 +41,4 @@ Options:
     -l, --logging                   If not specify does not log anything
     -h, --help                      Display this help message
 ```
+
