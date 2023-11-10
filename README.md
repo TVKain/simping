@@ -22,6 +22,7 @@ OS supports
 git clone https://github.com/TVKain/simping.git
 cd simping
 make 
+./simping -h
 ```
 
 ## Features
