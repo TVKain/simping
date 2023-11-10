@@ -14,6 +14,9 @@ SIMPING does not support
 OS supports 
 - Linux
 
+## Requirements
+- gcc
+- make
 ## Installation 
 ```
 git clone https://github.com/TVKain/simping.git
