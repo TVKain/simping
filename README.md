@@ -10,6 +10,9 @@ SIMPING does not support
 - DNS 
 - echo reply listener is not implemented 
 
+OS supports 
+- Linux
+
 Features
 - packet with custom size 
 - send packet indefinitely until receive interrupt, can specify delay between each packet 
