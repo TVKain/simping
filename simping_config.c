@@ -106,6 +106,8 @@ void init_simping_config(struct simping_config **current_config, int argc, char 
     (*current_config)->delay = delay;
     (*current_config)->packet_count = packet_count;
     (*current_config)->logging = logging;
+    (*current_config)->packet_sent = 0;
+    (*current_config)->sent_attempt = 0;
 }
 
 void dbg_simping_config(struct simping_config *config) {

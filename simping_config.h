@@ -11,10 +11,14 @@ struct simping_config {
     uint16_t delay;
     int packet_count;
     int logging;
+    uint32_t packet_sent;
+    uint32_t sent_attempt;
 };
 
 void init_simping_config(struct simping_config **, int argc, char *argv[]);
 void dbg_simping_config(struct simping_config *config);
 void free_simping_config(struct simping_config *config);
+
+
 
 #endif

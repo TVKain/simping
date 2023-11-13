@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <errno.h>
+#include <time.h>
 
 #include <netinet/in.h>
 #include <netinet/ip.h>
@@ -51,16 +53,21 @@ unsigned short simping_checksum(void *b, int len) {
 void simping_start_inner(struct simping_config *config, int sockfd, struct sockaddr_in target, uint8_t *send_buff) {
     
     ssize_t ret;
+
     do {
         ret = simping_send(send_buff, config->buff_size, sockfd, target);
 
-        if (config->logging) {
-            if (ret == -1) {
-                fprintf(stderr, "Error: can not send packet to %s\n", config->target_ip);
-            } else {
+        if (ret == -1) {
+            if (config->logging) {
+                fprintf(stderr, "Error: can not send packet to %s - Code %d - %s\n", config->target_ip, errno, strerror(errno));
+            }
+        } else {
+            if (config->logging) {
                 printf("Sent packet with %d byte to %s\n", config->buff_size, config->target_ip);
             }
+            config->packet_sent += 1;
         }
+        config->sent_attempt += 1;
     } while (ret == -1);
 
     if (config->delay != 0) {
